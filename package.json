@@ -1,6 +1,6 @@
 {
   "name": "brain-games-mn",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "My first project from hexlet.io",
   "main": "index.js",
   "bin": {
@@ -14,11 +14,13 @@
   },
   "author": "mna",
   "license": "ISC",
+  "dependencies" : {
+    "readline-sync": "*"
+  },
   "devDependencies": {
     "babel-cli": "*",
     "babel-core": "*",
     "babel-preset-env": "*",
-    "babel-preset-stage-0": "*",
-    "readline-sync": "*"
+    "babel-preset-stage-0": "*"
   }
 }
