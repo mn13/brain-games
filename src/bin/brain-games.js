@@ -1,2 +1,4 @@
 #!/usr/bin/env nodejs
-console.log("Welcome to the Brain Games!");
+import askName from '..';
+console.log("Welcome to the Brain Games!\n");
+askName();
