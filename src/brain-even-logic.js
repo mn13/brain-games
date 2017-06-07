@@ -1,18 +1,21 @@
 import readlineSync from 'readline-sync';
 import askName from './ask-name';
 
-const YES = 'yes';
-const NO = 'no';
-const NUM_OF_QUESTIONS = 3;
-const MAX_NUM = 100;
+const yes = 'yes';
+const no = 'no';
+const numOfQuestions = 3;
+const maxNum = 100;
+
+console.log('Welcome to the Brain Games!');
+console.log('Answer "yes" if number even otherwise answer "no".');
 
 const name = askName();
 
 export default () => {
-  for (let i = 0; i < NUM_OF_QUESTIONS; i += 1) {
-    const n = Math.round(Math.random() * MAX_NUM);
-    const correctAnswer = (n % 2) ? NO : YES;
-    console.log(`Question: ${n}`);
+  for (let i = 0; i < numOfQuestions; i += 1) {
+    const randomNum = Math.round(Math.random() * maxNum);
+    const correctAnswer = (randomNum % 2) ? no : yes;
+    console.log(`Question: ${randomNum}`);
     const answer = readlineSync.question('Your answer: ');
     if (!correctAnswer.localeCompare(answer.toLowerCase())) {
       console.log('Correct!');
