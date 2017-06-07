@@ -1,9 +1,12 @@
 import readlineSync from 'readline-sync';
+import askName from './ask-name';
 
 const YES = 'yes';
 const NO = 'no';
 const NUM_OF_QUESTIONS = 3;
 const MAX_NUM = 100;
+
+const name = askName();
 
 export default () => {
   for (let i = 0; i < NUM_OF_QUESTIONS; i += 1) {
@@ -15,8 +18,9 @@ export default () => {
       console.log('Correct!');
     } else {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'`);
-      return false;
+      console.log(`Let's try again, ${name}!`);
+      return;
     }
   }
-  return true;
+  console.log(`Congratulations, ${name}!`);
 };
