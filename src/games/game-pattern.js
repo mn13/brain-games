@@ -5,7 +5,7 @@ const numOfQuestions = 3;
 export default (name, getQuestion, getCorrectAnswer, isCorrect) => {
   for (let i = 0; i < numOfQuestions; i += 1) {
     const question = getQuestion();
-    const correctAnswer = getCorrectAnswer();
+    const correctAnswer = getCorrectAnswer(question);
     console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ');
     if (isCorrect(answer, correctAnswer)) {
