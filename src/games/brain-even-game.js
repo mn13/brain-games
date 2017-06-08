@@ -1,4 +1,4 @@
-import runGame from './game-pattern';
+import runGame from './brain-games-api';
 
 const yes = 'yes';
 const no = 'no';
