@@ -3,30 +3,32 @@ import getRandom from '../';
 
 const maxNum = 100;
 const operations = ['+', '-', '*'];
-const question = {};
+
+const getCorrectAnswer = (firstNum, secondNum, operation) => {
+  switch (operation) {
+    case '+':
+      return firstNum + secondNum;
+    case '-':
+      return firstNum - secondNum;
+    case '*':
+      return firstNum * secondNum;
+    default:
+      return undefined;
+  }
+  // return question.correct;
+};
 
 const gameDescription = 'What is the result of the expression?';
 const getQuestion = () => {
-  question.firstNum = getRandom(0, maxNum);
-  question.secondNum = getRandom(0, maxNum);
-  question.operation = operations[getRandom(0, operations.length - 1)];
-  return `${question.firstNum} ${question.operation} ${question.secondNum}`;
-};
-const getCorrectAnswer = () => {
-  switch (question.operation) {
-    case '+':
-      question.correct = question.firstNum + question.secondNum;
-      break;
-    case '-':
-      question.correct = question.firstNum - question.secondNum;
-      break;
-    case '*':
-      question.correct = question.firstNum * question.secondNum;
-      break;
-    default:
-      question.correct = undefined;
-  }
-  return question.correct;
+  const firstNum = getRandom(0, maxNum);
+  const secondNum = getRandom(0, maxNum);
+  const operation = operations[getRandom(0, operations.length - 1)];
+
+  const correctAnswer = getCorrectAnswer(firstNum, secondNum, operation);
+  return {
+    question: `${firstNum} ${operation} ${secondNum}`,
+    correctAnswer: String(correctAnswer),
+  };
 };
 
-export default () => runGame(gameDescription, getQuestion, getCorrectAnswer);
+export default () => runGame(gameDescription, getQuestion);
