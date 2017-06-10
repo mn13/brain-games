@@ -18,4 +18,3 @@ const getQuestion = () => {
 };
 
 export default () => runGame(description, getQuestion);
-console.log('after export runEvenGame');
