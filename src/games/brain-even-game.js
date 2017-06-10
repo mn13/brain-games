@@ -7,8 +7,13 @@ const maxNum = 100;
 
 const isEven = num => !(num % 2);
 
-const gameDescription = 'Answer "yes" if number even otherwise answer "no".';
-const getQuestion = () => getRandom(0, maxNum);
-const getCorrectAnswer = question => (isEven(question) ? yes : no);
+const evenGame = {
+  description: 'Answer "yes" if number even otherwise answer "no".',
+  getQuestion: () => {
+    this.question = getRandom(0, maxNum);
+    return this.question;
+  },
+  correctAnswer: isEven(this.question) ? yes : no,
+};
 
-export default () => runGame(gameDescription, getQuestion, getCorrectAnswer);
+export default () => runGame(evenGame);
