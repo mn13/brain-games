@@ -10,9 +10,9 @@ const isCorrect = (answer, correctAnswer) => !(String(correctAnswer)
 
 const numOfQuestions = 3;
 
-export default (message, getQuestion, getCorrectAnswer) => {
+export default (gameDescription, getQuestion, getCorrectAnswer) => {
   console.log('Welcome to the Brain Games!');
-  console.log(`${message}`);
+  console.log(`${gameDescription}`);
 
   const name = askName();
 

@@ -5,7 +5,7 @@ const maxNum = 100;
 const operations = ['+', '-', '*'];
 const question = {};
 
-const message = 'What is the result of the expression?';
+const gameDescription = 'What is the result of the expression?';
 const getQuestion = () => {
   question.firstNum = getRandom(0, maxNum);
   question.secondNum = getRandom(0, maxNum);
@@ -29,4 +29,4 @@ const getCorrectAnswer = () => {
   return question.correct;
 };
 
-export default () => runGame(message, getQuestion, getCorrectAnswer);
+export default () => runGame(gameDescription, getQuestion, getCorrectAnswer);
