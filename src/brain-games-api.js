@@ -1,13 +1,29 @@
 import readlineSync from 'readline-sync';
 
+const askName = () => {
+  const name = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${name}! `);
+  return name;
+};
+const isCorrect = (answer, correctAnswer) => !(String(correctAnswer)
+                                              .localeCompare(answer.toLowerCase()));
+
 const numOfQuestions = 3;
 
-export default (name, getQuestion, getCorrectAnswer, isCorrect) => {
+export default (message, getQuestion, getCorrectAnswer) => {
+  console.log('Welcome to the Brain Games!');
+  console.log(`${message}`);
+
+  const name = askName();
+
   for (let i = 0; i < numOfQuestions; i += 1) {
     const question = getQuestion();
     const correctAnswer = getCorrectAnswer(question);
+
     console.log(`Question: ${question}`);
+
     const answer = readlineSync.question('Your answer: ');
+
     if (isCorrect(answer, correctAnswer)) {
       console.log('Correct!');
     } else {

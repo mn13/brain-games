@@ -1,20 +1,15 @@
-import runGame from './brain-games-api';
+import runGame from '../brain-games-api';
+import getRandom from '../';
 
 const maxNum = 100;
 const operations = ['+', '-', '*'];
 const question = {};
-// var rand = min - 0.5 + Math.random() * (max - min + 1)
-//     rand = Math.round(rand);
-//     return rand;
-const getRandom = (max) => {
-  const temp = Math.random() * (max + 1);
-  return Math.round(temp - 0.5);
-};
 
+const message = 'What is the result of the expression?';
 const getQuestion = () => {
-  question.firstNum = getRandom(maxNum);
-  question.secondNum = getRandom(maxNum);
-  question.operation = operations[getRandom(operations.length - 1)];
+  question.firstNum = getRandom(0, maxNum);
+  question.secondNum = getRandom(0, maxNum);
+  question.operation = operations[getRandom(0, operations.length - 1)];
   return `${question.firstNum} ${question.operation} ${question.secondNum}`;
 };
 const getCorrectAnswer = () => {
@@ -33,6 +28,5 @@ const getCorrectAnswer = () => {
   }
   return question.correct;
 };
-const isCorrect = (answer, correctAnswer) => (+answer === correctAnswer);
 
-export default name => runGame(name, getQuestion, getCorrectAnswer, isCorrect);
+export default () => runGame(message, getQuestion, getCorrectAnswer);

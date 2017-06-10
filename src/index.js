@@ -1,7 +1,6 @@
-import readlineSync from 'readline-sync';
-
-export default () => {
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}! `);
-  return name;
+export default (min, max) => {
+  const minTemp = min - 0.5;
+  const maxTemp = max - (min - 1);
+  const randTemp = Math.random() * (maxTemp);
+  return Math.round(minTemp + randTemp);
 };

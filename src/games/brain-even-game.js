@@ -1,4 +1,5 @@
-import runGame from './brain-games-api';
+import runGame from '../brain-games-api';
+import getRandom from '../';
 
 const yes = 'yes';
 const no = 'no';
@@ -6,8 +7,8 @@ const maxNum = 100;
 
 const isEven = num => !(num % 2);
 
-const getQuestion = () => Math.round(Math.random() * maxNum);
+const message = 'Answer "yes" if number even otherwise answer "no".';
+const getQuestion = () => getRandom(0, maxNum);
 const getCorrectAnswer = question => (isEven(question) ? yes : no);
-const isCorrect = (answer, correctAnswer) => !(correctAnswer.localeCompare(answer.toLowerCase()));
 
-export default name => runGame(name, getQuestion, getCorrectAnswer, isCorrect);
+export default () => runGame(message, getQuestion, getCorrectAnswer);
