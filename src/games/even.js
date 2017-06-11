@@ -1,5 +1,5 @@
 import runGame from '../brain-games-api';
-import getRandom from '../';
+import getRandom from '../get-random';
 
 const yes = 'yes';
 const no = 'no';
@@ -11,10 +11,7 @@ const description = 'Answer "yes" if number even otherwise answer "no".';
 const getQuestion = () => {
   const question = getRandom(0, maxNum);
   const correctAnswer = isEven(question);
-  return {
-    question,
-    correctAnswer,
-  };
+  return { question, correctAnswer };
 };
 
 export default () => runGame(description, getQuestion);

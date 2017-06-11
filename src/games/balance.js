@@ -1,5 +1,5 @@
 import runGame from '../brain-games-api';
-import getRandom from '../';
+import getRandom from '../get-random';
 
 const maxNum = 100;
 const minNum = 10;
@@ -28,10 +28,7 @@ const description = 'Balance the given number.';
 const getQuestion = () => {
   const question = getRandom(minNum, maxNum);
   const correctAnswer = balance(question);
-  return {
-    question,
-    correctAnswer,
-  };
+  return { question, correctAnswer };
 };
 
 export default () => runGame(description, getQuestion);

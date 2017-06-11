@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import runProgressionGame from '../games/brain-progression-game';
+import runProgressionGame from '../games/progression';
 
 runProgressionGame();

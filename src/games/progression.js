@@ -1,5 +1,5 @@
 import runGame from '../brain-games-api';
-import getRandom from '../';
+import getRandom from '../get-random';
 
 const maxProgressionStart = 10;
 const maxProgressionDiff = 10;
@@ -21,12 +21,10 @@ const gameDescription = 'What number is missing in this progression?';
 const getQuestion = () => {
   const progression = getProgression();
   const questionPos = getRandom(0, progression.length - 1);
-  const correctAnswer = progression[questionPos];
+  const correctAnswer = `${progression[questionPos]}`;
   progression[questionPos] = '..';
-  return {
-    question: progression.join(' '),
-    correctAnswer: String(correctAnswer),
-  };
+  const question = progression.join(' ');
+  return { question, correctAnswer };
 };
 
 export default () => runGame(gameDescription, getQuestion);
