@@ -1,11 +1,9 @@
 import runGame from '../brain-games-api';
 import getRandom from '../get-random';
 
-const yes = 'yes';
-const no = 'no';
 const maxNum = 100;
 
-const isEven = num => (!(num % 2) ? yes : no);
+const isEven = num => (!(num % 2) ? 'yes' : 'no');
 
 const description = 'Answer "yes" if number even otherwise answer "no".';
 const getQuestion = () => {
